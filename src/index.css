@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Times New Roman", Times, serif;
+}
+
+@layer base {
+  :root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-app: #f8fafc;
+    --card: #ffffff;
+    --card-border: #f1f5f9;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --accent: #eff6ff;
+    --accent-text: #2563eb;
+  }
+
+  .dark {
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --bg-app: #0f172a;
+    --card: #1e293b;
+    --card-border: rgba(255, 255, 255, 0.05);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: rgba(255, 255, 255, 0.05);
+    --accent-text: #3b82f6;
+  }
+
+  /* Theme: Blue Dark (Inherently Dark) */
+  .theme-blue-dark {
+    --primary: #3b82f6;
+    --bg-app: #0a0f2c;
+    --card: #151b3d;
+    --card-border: rgba(59, 130, 246, 0.1);
+    --text-main: #ffffff;
+    --text-muted: #94a3b8;
+    --accent: rgba(59, 130, 246, 0.1);
+    --accent-text: #60a5fa;
+  }
+
+  /* Theme: Pink */
+  .theme-pink {
+    --primary: #db2777;
+    --bg-app: #fff1f2;
+    --accent: #ffe4e6;
+    --accent-text: #db2777;
+  }
+  .dark.theme-pink {
+    --primary: #f472b6;
+    --bg-app: #2d1b1e;
+    --card: #3d252a;
+    --accent: rgba(244, 114, 182, 0.1);
+    --accent-text: #f472b6;
+  }
+
+  /* Theme: Green */
+  .theme-green {
+    --primary: #059669;
+    --bg-app: #f0fdf4;
+    --accent: #dcfce7;
+    --accent-text: #059669;
+  }
+  .dark.theme-green {
+    --primary: #10b981;
+    --bg-app: #142d1e;
+    --card: #1b3d29;
+    --accent: rgba(16, 185, 129, 0.1);
+    --accent-text: #10b981;
+  }
+
+  /* Theme: Purple Gradient */
+  .theme-purple {
+    --primary: #7c3aed;
+    --bg-app: #f5f3ff;
+    --accent: #ede9fe;
+    --accent-text: #7c3aed;
+  }
+  .dark.theme-purple {
+    --primary: #a78bfa;
+    --bg-app: #1e142d;
+    --card: #2a1b3d;
+    --accent: rgba(167, 139, 250, 0.1);
+    --accent-text: #a78bfa;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+body {
+  @apply bg-[var(--bg-app)] text-[var(--text-main)] font-sans selection:bg-blue-100 selection:text-blue-600;
+  /* Ensure padding doesn't eat up space in small landscape */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .pt-8 { padding-top: 1rem; }
+    .pb-32 { padding-bottom: 2rem; }
+    .mb-8 { margin-bottom: 1rem; }
+  }
+}
